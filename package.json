@@ -1,7 +1,7 @@
 {
   "name": "resin-docs",
   "private": true,
-  "version": "5.2.6",
+  "version": "5.2.3",
   "engines": {
     "node": "^10.0.0"
   },
@@ -11,7 +11,8 @@
     "start": "node index.js",
     "test": "npm run test-spelling",
     "test-spelling": "find . -iname \"*.*md\" -not -path \"./CHANGELOG*\" -not -path \"./node_modules/*\" | ./tools/test-spelling.sh",
-    "build": "./tools/prepare.sh && ./tools/build.sh && webpack -p",
+    "postinstall": "./tools/prepare.sh",
+    "build": "./tools/build.sh && webpack -p",
     "watch-pages": "watch ./tools/build.sh pages shared templates config",
     "watch-assets": "webpack -w",
     "watch": "npm run watch-pages & npm run watch-assets"
